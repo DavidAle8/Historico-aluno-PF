@@ -1,0 +1,36 @@
+const materias = [{
+    anoLetivo: 2017,
+  componenteCurricular: "Introdução A Administração",
+  ch: 60,
+  freq: 80,
+  nota: 7,
+},
+
+ {
+    anoLetivo: 2017,
+  componenteCurricular: "Programação Imperativa",
+  ch: 60,
+  freq: 80,
+  nota: 4,
+},
+
+ {
+    anoLetivo: 2017,
+  componenteCurricular: "Programação Imperativa",
+  ch: 60,
+  freq: 80,
+  nota: 5,
+} ]
+
+
+const alteraSituacao = (lista) => lista.map(item => item.componenteCurricular)
+
+const aprovado =  (lista) => lista.filter((x)=> x.nota >=5)
+const reprovado = (lista) => lista.filter((x)=> x.nota <5)
+
+const resultado = aprovado(materias)
+const resultado2 = reprovado(materias)
+
+console.log(`Matérias em aprovação:\n ${alteraSituacao(resultado)} `)
+console.log("")
+console.log(`Matérias em reprovação\n: ${ alteraSituacao(resultado2)} `)
