@@ -1,0 +1,25 @@
+lista = [4,5,8,9,6,8,10]
+
+const soma = (acc,x) => acc + x
+const Calcreduçao = (lista) => lista.reduce(soma,0)
+const media = Calcreduçao(lista)
+console.log (`A soma dos elementos é: ${(media)}`)
+console.log('')
+
+const calcpesos = (lista) => lista.length
+const pesos = calcpesos(lista)
+console.log (`O valor do peso é: ${(pesos)}`)
+console.log('')
+
+const MediaArit = (media / pesos)
+console.log (`A média aritimética é: ${MediaArit}`)
+console.log('')
+
+const Calcvariancia = (lista) => lista.map((x) => ((x - MediaArit)**2))
+const variancia = (Calcreduçao(Calcvariancia(lista)))
+console.log (`O valor da raiancia é: ${(variancia)}`)
+console.log('')
+
+const desvioPadrao = Math.sqrt(variancia)
+console.log(`O valor do desvio padrão é: ${desvioPadrao}`)
+
