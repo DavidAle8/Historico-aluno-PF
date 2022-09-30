@@ -1,0 +1,56 @@
+const renderizaRegistro = (registro, table) => {
+  const tr = document.createElement('tr');
+  const componenteCurricular = document.createElement('td');
+  const cargaHoraria = document.createElement('td');
+  const situacao = document.createElement('td');
+
+  componenteCurricular.innerText = registro.componenteCurricular;
+  cargaHoraria.innerText = registro.ch
+  situacao.innerText = registro.situacao;
+
+  tr.appendChild(componenteCurricular);
+  tr.appendChild(cargaHoraria);
+  tr.appendChild(situacao)
+
+  table.appendChild(tr)
+}
+
+const renderiza = (lista) => {
+  const table  = document.querySelector('#tabela tbody');
+
+  lista.forEach(value => {
+    renderizaRegistro(value, table)
+  })
+}
+
+const leArquivo = async () => {
+  const resposta = await fetch('./arquivo.txt');
+  const arquivo = await resposta.text()
+
+  const linha =  arquivo.split('\n')
+  const registros = linha.map(str => {
+    const colunas = str.split(',')
+
+    const materia = {
+      anoLetivo: colunas[0],
+      componenteCurricular: colunas[1],
+      ch: colunas[2],
+      freq: parseFloat(colunas[3]),
+      nota: colunas[4],
+      situacao: colunas[7]
+    }
+
+    return materia;
+  })
+  renderiza(registros)
+  console.log(registros)
+}
+
+
+leArquivo();
+
+
+
+
+
+
